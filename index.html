@@ -1,0 +1,1309 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>The Epstein Files: A Comprehensive Analysis</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #f8f9fa;
+            --accent: #8b5a3c;
+            --text-primary: #2d2d2d;
+            --text-secondary: #6b7280;
+            --border: #e5e7eb;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+        
+        .serif {
+            font-family: 'Crimson Text', serif;
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.9) 0%, rgba(43, 43, 43, 0.8) 100%);
+        }
+        
+        .toc-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 280px;
+            height: 100vh;
+            background: white;
+            border-right: 1px solid var(--border);
+            z-index: 50;
+            overflow-y: auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+        
+        .section-divider {
+            border-top: 2px solid var(--accent);
+            margin: 4rem 0;
+            position: relative;
+        }
+        
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .bento-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .chart-container {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .citation-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted var(--accent);
+        }
+        
+        .citation-link:hover {
+            border-bottom-style: solid;
+        }
+        
+        .data-highlight {
+            background: linear-gradient(120deg, rgba(139, 90, 60, 0.1) 0%, transparent 100%);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 1024px) {
+            .toc-fixed {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+            
+            .toc-fixed.open {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .max-w-6xl.mx-auto.px-8 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .hero-overlay {
+                padding: 3rem 1rem;
+            }
+            
+            .hero .bento-grid {
+                gap: 1rem;
+            }
+            
+            #executive-summary .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            #executive-summary .grid > div:last-child {
+                grid-column: 1;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-overlay h1 {
+                font-size: 2.5rem;
+            }
+            .hero-overlay p {
+                font-size: 1rem;
+            }
+            #executive-summary .grid > div:last-child > div {
+                padding: 1rem;
+            }
+        }
+    </style>
+  </head>
+
+  <body class="bg-gray-50">
+    <!-- Mobile TOC Toggle -->
+    <button id="toc-toggle" class="lg:hidden fixed top-4 left-4 z-50 bg-white p-2 rounded-lg shadow-lg border">
+      <i class="fas fa-bars text-gray-700"></i>
+    </button>
+
+    <!-- Table of Contents -->
+    <nav id="toc" class="toc-fixed">
+      <div class="mb-8">
+        <h2 class="serif text-xl font-bold text-gray-900 mb-4">Contents</h2>
+        <div class="space-y-3">
+          <a href="#executive-summary" class="block text-sm text-gray-700 hover:text-gray-900 transition-colors">Executive Summary</a>
+          <a href="#latest-release" class="block text-sm text-gray-700 hover:text-gray-900 transition-colors">Latest Release Analysis</a>
+          <a href="#previous-releases" class="block text-sm text-gray-700 hover:text-gray-900 transition-colors">Previous Releases</a>
+          <a href="#comprehensive-data" class="block text-sm text-gray-700 hover:text-gray-900 transition-colors">Comprehensive Name Index</a>
+          <a href="#document-analysis" class="block text-sm text-gray-700 hover:text-gray-900 transition-colors">Document Analysis</a>
+          <a href="#legal-status-breakdown" class="block text-sm text-gray-700 hover:text-gray-900 transition-colors">Legal Status Breakdown</a>
+          <a href="#methodology" class="block text-sm text-gray-700 hover:text-gray-900 transition-colors">Methodology &amp; Limitations</a>
+        </div>
+      </div>
+
+      <div class="border-t pt-6">
+        <h3 class="text-sm font-semibold text-gray-900 mb-3">Key Insights</h3>
+        <div class="space-y-2 text-xs text-gray-600">
+          <div class="flex items-center gap-2">
+            <i class="fas fa-chart-bar text-xs text-amber-600"></i>
+            <span>3.5M+ pages analyzed</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="fas fa-users text-xs text-amber-600"></i>
+            <span>200+ named individuals</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i class="fas fa-gavel text-xs text-amber-600"></i>
+            <span>2 prosecutions only</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="relative bg-white overflow-hidden">
+        <div class="hero-overlay relative h-[60vh] flex items-center justify-center">
+          <div class="absolute inset-0">
+            <img src="https://kimi-web-img.moonshot.cn/img/www.courts.oregon.gov/d050f7f70e69d7ce6e7ce29a0e2760cc0d2f5fd6.jpg" alt="Court documents" class="w-full h-full object-cover opacity-30" size="wallpaper" aspect="wide" style="photo" query="court documents" referrerpolicy="no-referrer" data-modified="1" data-score="0.00"/>
+          </div>
+          <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-8">
+            <h1 class="serif text-5xl md:text-6xl font-bold italic mb-6 leading-tight">
+              The Epstein Files
+            </h1>
+            <p class="text-xl md:text-2xl font-light opacity-90 max-w-2xl mx-auto">
+              A comprehensive analysis of 3.5 million pages revealing association, allegation, and evidence
+            </p>
+          </div>
+        </div>
+
+        <!-- Executive Summary -->
+        <div id="executive-summary" class="max-w-6xl mx-auto px-8 py-16">
+          <div class="bento-grid">
+            <div class="bg-white p-8 border border-gray-200 rounded-lg">
+              <h2 class="serif text-3xl font-bold text-gray-900 mb-6">Executive Summary</h2>
+              <div class="prose prose-lg text-gray-700 leading-relaxed">
+                <p class="text-xl font-medium text-gray-900 mb-4">
+                  The January 30, 2026 DOJ release of <span class="data-highlight">3.5 million pages</span> represents the most comprehensive disclosure of Epstein-related materials to date, revealing hundreds of associations but maintaining an extraordinary narrowness of proven criminal culpability.
+                </p>
+                <p class="mb-4">
+                  Only <span class="data-highlight">two individuals were ever prosecuted</span>—Jeffrey Epstein himself and Ghislaine Maxwell—despite documentation spanning decades and implicating over 200 named individuals across politics, entertainment, business, and academia.
+                </p>
+                <p>
+                  The release requires careful source discrimination between <strong>verified documentary evidence</strong> and <strong>uninvestigated FBI tips</strong>, which the DOJ explicitly warns may include &#34;fake or falsely submitted&#34; materials.
+                </p>
+              </div>
+            </div>
+
+            <div class="space-y-6">
+              <div class="bg-amber-50 p-6 border border-amber-200 rounded-lg">
+                <h3 class="font-semibold text-amber-900 mb-3">Key Findings</h3>
+                <ul class="space-y-2 text-sm text-amber-800">
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle mt-1 text-xs"></i>
+                    <span>3.5M+ pages analyzed across multiple releases</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle mt-1 text-xs"></i>
+                    <span>200+ named individuals documented</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle mt-1 text-xs"></i>
+                    <span>2 prosecutions (Epstein, Maxwell)</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i class="fas fa-check-circle mt-1 text-xs"></i>
+                    <span>FBI tips explicitly marked as unverified</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="bg-gray-900 text-white p-6 rounded-lg">
+                <h3 class="font-semibold mb-3">Data Sources</h3>
+                <div class="space-y-2 text-sm">
+                  <div class="flex justify-between">
+                    <span>DOJ Primary Release</span>
+                    <span class="text-gray-300">3.5M pages</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>GitHub Dataset</span>
+                    <span class="text-gray-300">7,824 entries</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span>Named Individuals</span>
+                    <span class="text-gray-300">200+</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Latest Release Analysis -->
+      <section id="latest-release" class="max-w-6xl mx-auto px-8 py-16">
+        <div class="section-divider mb-12"></div>
+
+        <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Latest Release Analysis</h2>
+
+        <div class="grid lg:grid-cols-3 gap-8 mb-12">
+          <div class="lg:col-span-2">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-6">January 30, 2026 DOJ Release</h3>
+
+            <div class="bg-white p-8 border border-gray-200 rounded-lg mb-8">
+              <h4 class="text-lg font-semibold text-gray-900 mb-4">Scale and Structure</h4>
+              <p class="text-gray-700 mb-4">
+                The January 30, 2026 release encompasses approximately <span class="data-highlight">3.5 million pages</span> released under the <a href="https://www.justice.gov/epstein" class="citation-link">Epstein Files Transparency Act</a>. This legislative mandate compelled systematic declassification of materials spanning decades of investigation.
+              </p>
+
+              <div class="grid md:grid-cols-2 gap-6 mt-6">
+                <div>
+                  <h5 class="font-medium text-gray-900 mb-2">Key Components</h5>
+                  <ul class="text-sm text-gray-700 space-y-1">
+                    <li>• FBI-compiled sexual assault allegations</li>
+                    <li>• 56-page draft indictment from 2000s</li>
+                    <li>• ~2,000 videos and ~180,000 images</li>
+                    <li>• ~200,000 redacted/withheld pages</li>
+                  </ul>
+                </div>
+                <div>
+                  <h5 class="font-medium text-gray-900 mb-2">Critical Disclaimer</h5>
+                  <p class="text-sm text-gray-700">
+                    The DOJ explicitly notes that FBI tips <em>&#34;may include fake or falsely submitted images, documents or videos&#34;</em> and represent raw intelligence intake, not verified allegations.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white p-8 border border-gray-200 rounded-lg">
+              <h4 class="text-lg font-semibold text-gray-900 mb-4">Notable New Mentions</h4>
+
+              <div class="space-y-6">
+                <div class="border-l-4 border-red-400 pl-4">
+                  <h5 class="font-medium text-gray-900 mb-2">Entertainment Industry - FBI Tips</h5>
+                  <p class="text-sm text-gray-700 mb-2">
+                    Three prominent entertainment figures appear in January 2026 FBI tip materials with explicit notation of non-investigation status:
+                  </p>
+                  <ul class="text-sm text-gray-600 space-y-1">
+                    <li>• Jay-Z (Shawn Carter) - <a href="https://variety.com/2026/film/news/jay-z-harvey-weinstein-pusha-t-epstein-files-1236647297/" class="citation-link">Variety report</a>
+                    </li>
+                    <li>• Pusha T (Terrence Thornton) - <a href="https://variety.com/2026/film/news/jay-z-harvey-weinstein-pusha-t-epstein-files-1236647297/" class="citation-link">Variety report</a>
+                    </li>
+                    <li>• Harvey Weinstein - <a href="https://variety.com/2026/film/news/jay-z-harvey-weinstein-pusha-t-epstein-files-1236647297/" class="citation-link">Variety report</a>
+                    </li>
+                  </ul>
+                  <p class="text-xs text-red-600 mt-2">
+                    <i class="fas fa-exclamation-triangle mr-1"></i>
+                    <strong>Important:</strong> These mentions did not come from Epstein&#39;s personal records nor reports corroborated by law enforcement.
+                  </p>
+                </div>
+
+                <div class="border-l-4 border-amber-400 pl-4">
+                  <h5 class="font-medium text-gray-900 mb-2">Business and Technology Leaders</h5>
+                  <div class="space-y-3">
+                    <div>
+                      <h6 class="font-medium text-gray-800">Elon Musk</h6>
+                      <p class="text-sm text-gray-600">Email exchanges about Caribbean island visits - documented correspondence, no criminal allegations.</p>
+                    </div>
+                    <div>
+                      <h6 class="font-medium text-gray-800">Bill Gates</h6>
+                      <p class="text-sm text-gray-600">Draft email alleging extramarital affairs - single document, unverified, no criminal allegations.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="bg-gray-900 text-white p-6 rounded-lg">
+              <h4 class="font-semibold mb-4">Release Timeline</h4>
+              <div class="space-y-4 text-sm">
+                <div class="flex items-start gap-3">
+                  <div class="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <div class="font-medium">January 30, 2026</div>
+                    <div class="text-gray-300">3.5M pages - largest disclosure</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-2 h-2 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <div class="font-medium">December 2025</div>
+                    <div class="text-gray-300">33,295 pages from House Oversight</div>
+                  </div>
+                </div>
+                <div class="flex items-start gap-3">
+                  <div class="w-2 h-2 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <div class="font-medium">Dec 2024 - Jan 2025</div>
+                    <div class="text-gray-300">Giuffre v. Maxwell unsealing</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white p-6 border border-gray-200 rounded-lg">
+              <h4 class="font-semibold text-gray-900 mb-4">Document Categories</h4>
+              <div class="space-y-3 text-sm">
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-700">FBI Tips</span>
+                  <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">Unverified</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-700">Flight Logs</span>
+                  <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Verified</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-700">Photographs</span>
+                  <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Verified</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-700">Emails</span>
+                  <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">Contextual</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Previous Releases -->
+      <section id="previous-releases" class="max-w-6xl mx-auto px-8 py-16 bg-white">
+        <div class="section-divider mb-12"></div>
+
+        <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Previous Major Releases</h2>
+
+        <div class="grid lg:grid-cols-2 gap-12 mb-12">
+          <div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-6">December 2024 - January 2025</h3>
+
+            <div class="bg-gray-50 p-6 rounded-lg mb-6">
+              <h4 class="font-semibold text-gray-900 mb-3">Giuffre v. Maxwell Litigation</h4>
+              <p class="text-gray-700 text-sm mb-4">
+                The civil defamation suit produced foundational materials unsealed through judicial order, including:
+              </p>
+              <ul class="text-sm text-gray-600 space-y-1">
+                <li>• ~347 pages of deposition transcripts</li>
+                <li>• 1,247 pages of flight logs (2002-2013)</li>
+                <li>• 589 pages of email correspondence</li>
+                <li>• 214 photographic exhibits</li>
+              </ul>
+            </div>
+
+            <div class="space-y-4">
+              <div class="border-l-4 border-blue-400 pl-4">
+                <h5 class="font-medium text-gray-900">Prince Andrew, Duke of York</h5>
+                <p class="text-sm text-gray-600">Extensive documentation including Virginia Giuffre allegations, photographs, and flight logs. Civil settlement reached in 2022 with no criminal charges filed.</p>
+              </div>
+
+              <div class="border-l-4 border-gray-400 pl-4">
+                <h5 class="font-medium text-gray-900">Alan Dershowitz</h5>
+                <p class="text-sm text-gray-600">Legal representation for Epstein (2005-2008) plus personal allegations (denied). Defamation litigation ongoing.</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-6">House Oversight Committee Release</h3>
+
+            <div class="bg-amber-50 p-6 rounded-lg mb-6">
+              <h4 class="font-semibold text-amber-900 mb-3">December 5, 2025 - 33,295 pages</h4>
+              <p class="text-amber-800 text-sm mb-4">
+                Complete flight logs and partially redacted contact books provided comprehensive network documentation.
+              </p>
+              <div class="grid grid-cols-2 gap-4 text-xs">
+                <div>
+                  <div class="font-medium text-amber-900">Complete Flight Logs</div>
+                  <div class="text-amber-700">2002-2013, pilot-maintained</div>
+                </div>
+                <div>
+                  <div class="font-medium text-amber-900">Contact Books</div>
+                  <div class="text-amber-700">~1,971 entries</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <div class="flex items-center justify-between p-3 bg-white border rounded">
+                <span class="text-sm font-medium">Michael Jackson</span>
+                <span class="text-xs text-gray-500">79 mentions</span>
+              </div>
+              <div class="flex items-center justify-between p-3 bg-white border rounded">
+                <span class="text-sm font-medium">Diana Ross</span>
+                <span class="text-xs text-gray-500">77 mentions</span>
+              </div>
+              <div class="flex items-center justify-between p-3 bg-white border rounded">
+                <span class="text-sm font-medium">Mick Jagger</span>
+                <span class="text-xs text-gray-500">72 mentions</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Comprehensive Data -->
+      <section id="comprehensive-data" class="max-w-6xl mx-auto px-8 py-16">
+        <div class="section-divider mb-12"></div>
+
+        <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Comprehensive Name Index</h2>
+
+        <div class="grid lg:grid-cols-3 gap-8 mb-12">
+          <div class="lg:col-span-2">
+            <div class="bg-white p-8 border border-gray-200 rounded-lg">
+              <h3 class="text-xl font-semibold text-gray-900 mb-6">Primary Subjects &amp; Core Associates</h3>
+
+              <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div class="border-l-4 border-red-500 pl-4">
+                  <h4 class="font-bold text-gray-900 mb-2">Jeffrey Epstein</h4>
+                  <div class="space-y-2 text-sm text-gray-600">
+                    <div><strong>Category:</strong> Core</div>
+                    <div><strong>Mentions:</strong> 1,371</div>
+                    <div><strong>Status:</strong> Died 2019; indicted, not tried</div>
+                    <div><strong>EFTA Files:</strong> EFTA00024875, EFTA00026428, EFTA00026703</div>
+                  </div>
+                </div>
+
+                <div class="border-l-4 border-red-500 pl-4">
+                  <h4 class="font-bold text-gray-900 mb-2">Ghislaine Maxwell</h4>
+                  <div class="space-y-2 text-sm text-gray-600">
+                    <div><strong>Category:</strong> Accomplice</div>
+                    <div><strong>Mentions:</strong> 1,133</div>
+                    <div><strong>Status:</strong> Convicted 2021; 20-year sentence</div>
+                    <div><strong>EFTA Files:</strong> EFTA00024220, EFTA00025018, EFTA00026458</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-gray-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-gray-900 mb-3">Mention Ratio Analysis</h4>
+                <p class="text-sm text-gray-700 mb-3">
+                  The mention ratio of <span class="data-highlight">1.21:1 (Epstein:Maxwell)</span> indicates integrated operational roles rather than hierarchical subordination. Maxwell maintained substantial independent visibility across recruitment, scheduling, and coordination documentation.
+                </p>
+                <p class="text-xs text-gray-600">
+                  <i class="fas fa-info-circle mr-1"></i>
+                  Source: <a href="https://github.com/phelix001/epstein-network" class="citation-link">GitHub epstein-network analysis</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="bg-white p-6 border border-gray-200 rounded-lg">
+              <h4 class="font-semibold text-gray-900 mb-4">Category Distribution</h4>
+              <div class="space-y-3 text-sm">
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-700">Legal Representatives</span>
+                  <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">4 names</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-700">Political Figures</span>
+                  <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">25+ names</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-700">Business Leaders</span>
+                  <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">30+ names</span>
+                </div>
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-700">Entertainment</span>
+                  <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">40+ names</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-amber-50 p-6 border border-amber-200 rounded-lg">
+              <h4 class="font-semibold text-amber-900 mb-3">Data Completeness</h4>
+              <div class="text-sm text-amber-800 space-y-2">
+                <div class="flex items-center gap-2">
+                  <i class="fas fa-check-circle text-xs"></i>
+                  <span>200+ names documented</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i class="fas fa-check-circle text-xs"></i>
+                  <span>7,824 GitHub entries analyzed</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i class="fas fa-exclamation-triangle text-xs"></i>
+                  <span>Names redacted in draft indictment</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notable Figures by Category -->
+        <div class="grid lg:grid-cols-2 gap-8 mb-12">
+          <div class="bg-white p-8 border border-gray-200 rounded-lg">
+            <h3 class="text-xl font-semibold text-gray-900 mb-6">Political Figures</h3>
+
+            <div class="space-y-4">
+              <div class="border-l-4 border-blue-500 pl-4">
+                <h4 class="font-medium text-gray-900">Bill Clinton</h4>
+                <div class="text-sm text-gray-600 space-y-1">
+                  <div><strong>Mentions:</strong> 55</div>
+                  <div><strong>Context:</strong> Flight logs, photographs, correspondence</div>
+                  <div><strong>Status:</strong> Association documented; no criminal allegations</div>
+                </div>
+              </div>
+
+              <div class="border-l-4 border-red-500 pl-4">
+                <h4 class="font-medium text-gray-900">Donald Trump</h4>
+                <div class="text-sm text-gray-600 space-y-1">
+                  <div><strong>Mentions:</strong> 26 (prior); FBI tips (Jan 2026)</div>
+                  <div><strong>Context:</strong> Social encounters (1990s-2000s); unverified tips</div>
+                  <div><strong>Status:</strong> Tips uninvestigated</div>
+                </div>
+              </div>
+
+              <div class="border-l-4 border-purple-500 pl-4">
+                <h4 class="font-medium text-gray-900">Prince Andrew, Duke of York</h4>
+                <div class="text-sm text-gray-600 space-y-1">
+                  <div><strong>Mentions:</strong> 81</div>
+                  <div><strong>Context:</strong> Extensive documentation across multiple categories</div>
+                  <div><strong>Status:</strong> Civil settlement (2022); no criminal charges</div>
+                </div>
+              </div>
+
+              <div class="border-l-4 border-green-500 pl-4">
+                <h4 class="font-medium text-gray-900">Steve Bannon</h4>
+                <div class="text-sm text-gray-600 space-y-1">
+                  <div><strong>Context:</strong> Email exchanges (2015) - political matters</div>
+                  <div><strong>Status:</strong> No criminal allegations</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-8 border border-gray-200 rounded-lg">
+            <h3 class="text-xl font-semibold text-gray-900 mb-6">Business &amp; Technology</h3>
+
+            <div class="space-y-4">
+              <div class="border-l-4 border-green-500 pl-4">
+                <h4 class="font-medium text-gray-900">Elon Musk</h4>
+                <div class="text-sm text-gray-600 space-y-1">
+                  <div><strong>Context:</strong> Email exchanges about Caribbean island visits</div>
+                  <div><strong>Status:</strong> Documented correspondence; no criminal allegations</div>
+                </div>
+              </div>
+
+              <div class="border-l-4 border-blue-500 pl-4">
+                <h4 class="font-medium text-gray-900">Bill Gates</h4>
+                <div class="text-sm text-gray-600 space-y-1">
+                  <div><strong>Context:</strong> Draft email alleging extramarital affairs</div>
+                  <div><strong>Status:</strong> Single document, unverified; no substantiated allegations</div>
+                </div>
+              </div>
+
+              <div class="border-l-4 border-indigo-500 pl-4">
+                <h4 class="font-medium text-gray-900">Richard Branson</h4>
+                <div class="text-sm text-gray-600 space-y-1">
+                  <div><strong>Mentions:</strong> 63</div>
+                  <div><strong>Context:</strong> Email exchanges, friendly relations</div>
+                  <div><strong>Status:</strong> No criminal allegations</div>
+                </div>
+              </div>
+
+              <div class="border-l-4 border-yellow-500 pl-4">
+                <h4 class="font-medium text-gray-900">Harvey Weinstein</h4>
+                <div class="text-sm text-gray-600 space-y-1">
+                  <div><strong>Context:</strong> FBI tip list (January 2026)</div>
+                  <div><strong>Status:</strong> Not investigated; convicted in separate cases</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Entertainment Figures -->
+        <div class="bg-white p-8 border border-gray-200 rounded-lg mb-12">
+          <h3 class="text-xl font-semibold text-gray-900 mb-6">Entertainment Industry Figures</h3>
+
+          <div class="grid md:grid-cols-3 gap-6">
+            <div>
+              <h4 class="font-medium text-gray-900 mb-3">High Mention Counts</h4>
+              <div class="space-y-2 text-sm">
+                <div class="flex justify-between">
+                  <span>Michael Jackson</span>
+                  <span class="text-gray-600">79 mentions</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Diana Ross</span>
+                  <span class="text-gray-600">77 mentions</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Mick Jagger</span>
+                  <span class="text-gray-600">72 mentions</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="font-medium text-gray-900 mb-3">Clinton-Associated Travel</h4>
+              <div class="space-y-2 text-sm">
+                <div>
+                  <div>Kevin Spacey</div>
+                  <div class="text-gray-600">71 mentions</div>
+                </div>
+                <div>
+                  <div>Chris Tucker</div>
+                  <div class="text-gray-600">71 mentions</div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="font-medium text-gray-900 mb-3">FBI Tips (Unverified)</h4>
+              <div class="space-y-2 text-sm">
+                <div class="text-red-600">
+                  <div>Jay-Z</div>
+                  <div class="text-red-500 text-xs">Not investigated</div>
+                </div>
+                <div class="text-red-600">
+                  <div>Pusha T</div>
+                  <div class="text-red-500 text-xs">Not investigated</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-xs text-gray-600 mt-4">
+            <i class="fas fa-info-circle mr-1"></i>
+            All entertainment figures listed have no Epstein-related criminal allegations unless otherwise noted.
+          </p>
+        </div>
+      </section>
+
+      <!-- Document Analysis -->
+      <section id="document-analysis" class="max-w-6xl mx-auto px-8 py-16 bg-white">
+        <div class="section-divider mb-12"></div>
+
+        <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Document Analysis</h2>
+
+        <div class="grid lg:grid-cols-2 gap-12">
+          <div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-6">EFTA Numbering System</h3>
+
+            <div class="bg-gray-50 p-6 rounded-lg mb-6">
+              <p class="text-gray-700 mb-4">
+                The <span class="data-highlight">EFTA numbering system</span> (EFTA000XXXXX) enables precise document identification and cross-referencing across the massive document corpus.
+              </p>
+
+              <div class="space-y-3">
+                <div class="flex items-start gap-3">
+                  <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-file-alt text-blue-600 text-sm"></i>
+                  </div>
+                  <div>
+                    <div class="font-medium text-gray-900">Field Office Documents</div>
+                    <div class="text-sm text-gray-600">Investigative reports and correspondence</div>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-users text-green-600 text-sm"></i>
+                  </div>
+                  <div>
+                    <div class="font-medium text-gray-900">Task Force Materials</div>
+                    <div class="text-sm text-gray-600">Multi-jurisdictional coordination documents</div>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <i class="fas fa-search text-purple-600 text-sm"></i>
+                  </div>
+                  <div>
+                    <div class="font-medium text-gray-900">Special Agent Reports</div>
+                    <div class="text-sm text-gray-600">Interview summaries and evidence documentation</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-6">Document Categories</h3>
+
+            <div class="space-y-4">
+              <div class="bg-white p-4 border border-gray-200 rounded-lg">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="font-medium text-gray-900">FBI Tip Line Materials</h4>
+                  <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">Unverified</span>
+                </div>
+                <p class="text-sm text-gray-600">
+                  Public submissions including allegations against Trump, Jay-Z, Pusha T, Weinstein. Explicitly marked as potentially &#34;fake or falsely submitted.&#34;
+                </p>
+              </div>
+
+              <div class="bg-white p-4 border border-gray-200 rounded-lg">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="font-medium text-gray-900">Flight Logs</h4>
+                  <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Verified</span>
+                </div>
+                <p class="text-sm text-gray-600">
+                  Complete records from 2002-2013, pilot-maintained. Enable quantitative network analysis of passenger travel patterns.
+                </p>
+              </div>
+
+              <div class="bg-white p-4 border border-gray-200 rounded-lg">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="font-medium text-gray-900">Photographic Evidence</h4>
+                  <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Verified</span>
+                </div>
+                <p class="text-sm text-gray-600">
+                  ~180,000 images including event documentation and personal photographs with various associates.
+                </p>
+              </div>
+
+              <div class="bg-white p-4 border border-gray-200 rounded-lg">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="font-medium text-gray-900">Email Correspondence</h4>
+                  <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">Contextual</span>
+                </div>
+                <p class="text-sm text-gray-600">
+                  Operational communications between Epstein, Maxwell, and various associates regarding scheduling and events.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Source Verification Guide -->
+        <div class="bg-amber-50 p-8 border border-amber-200 rounded-lg mt-12">
+          <h3 class="text-xl font-semibold text-amber-900 mb-4">
+            <i class="fas fa-shield-alt mr-2"></i>
+            Source Verification Guide
+          </h3>
+
+          <div class="grid md:grid-cols-3 gap-6">
+            <div>
+              <h4 class="font-medium text-amber-900 mb-2">High Reliability</h4>
+              <ul class="text-sm text-amber-800 space-y-1">
+                <li>• Flight logs (pilot-maintained)</li>
+                <li>• Photographs with timestamps</li>
+                <li>• Court deposition transcripts</li>
+                <li>• Official DOJ releases</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="font-medium text-amber-900 mb-2">Medium Reliability</h4>
+              <ul class="text-sm text-amber-800 space-y-1">
+                <li>• Email correspondence</li>
+                <li>• Contact book entries</li>
+                <li>• Third-party witness statements</li>
+                <li>• Financial records</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 class="font-medium text-amber-900 mb-2">Low Reliability</h4>
+              <ul class="text-sm text-amber-800 space-y-1">
+                <li>• FBI tip line materials</li>
+                <li>• Anonymous allegations</li>
+                <li>• Draft documents</li>
+                <li>• Unverified media reports</li>
+              </ul>
+            </div>
+          </div>
+
+          <p class="text-sm text-amber-700 mt-4">
+            <i class="fas fa-exclamation-circle mr-1"></i>
+            The January 2026 release requires particular caution with FBI tip materials, which the DOJ explicitly warns may contain false or malicious submissions.
+          </p>
+        </div>
+      </section>
+
+      <!-- Legal Status Breakdown -->
+      <section id="legal-status-breakdown" class="max-w-6xl mx-auto px-8 py-16">
+        <div class="section-divider mb-12"></div>
+
+        <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Legal Status Breakdown</h2>
+
+        <div class="grid lg:grid-cols-2 gap-12 mb-12">
+          <div class="bg-white p-8 border border-gray-200 rounded-lg">
+            <h3 class="text-xl font-semibold text-gray-900 mb-6">Criminal Prosecutions</h3>
+
+            <div class="space-y-6">
+              <div class="border-l-4 border-red-500 pl-4">
+                <h4 class="font-medium text-gray-900 mb-2">Ghislaine Maxwell</h4>
+                <div class="text-sm text-gray-600 space-y-1">
+                  <div><strong>Status:</strong> Convicted 2021</div>
+                  <div><strong>Sentence:</strong> 20 years</div>
+                  <div><strong>Charges:</strong> Sex trafficking, conspiracy</div>
+                  <div><strong>Court:</strong> Southern District of New York</div>
+                </div>
+              </div>
+
+              <div class="border-l-4 border-gray-500 pl-4">
+                <h4 class="font-medium text-gray-900 mb-2">Jeffrey Epstein</h4>
+                <div class="text-sm text-gray-600 space-y-1">
+                  <div><strong>Status:</strong> Died 2019; pre-trial</div>
+                  <div><strong>Charges:</strong> Sex trafficking, conspiracy</div>
+                  <div><strong>Indictment:</strong> 2019, Southern District of New York</div>
+                  <div><strong>Outcome:</strong> Case dismissed due to death</div>
+                </div>
+              </div>
+
+              <div class="border-l-4 border-amber-500 pl-4">
+                <h4 class="font-medium text-gray-900 mb-2">Draft Indictment (2000s)</h4>
+                <div class="text-sm text-gray-600 space-y-1">
+                  <div><strong>Status:</strong> Never filed</div>
+                  <div><strong>Content:</strong> 56 pages, names redacted</div>
+                  <div><strong>Significance:</strong> Shows prosecution considered charges earlier</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-8 border border-gray-200 rounded-lg">
+            <h3 class="text-xl font-semibold text-gray-900 mb-6">Civil Actions &amp; Settlements</h3>
+
+            <div class="space-y-6">
+              <div class="border-l-4 border-blue-500 pl-4">
+                <h4 class="font-medium text-gray-900 mb-2">Virginia Giuffre v. Prince Andrew</h4>
+                <div class="text-sm text-gray-600 space-y-1">
+                  <div><strong>Status:</strong> Settled 2022</div>
+                  <div><strong>Outcome:</strong> Financial settlement, no admission of liability</div>
+                  <div><strong>Documentation:</strong> Photographs, flight logs, witness statements</div>
+                </div>
+              </div>
+
+              <div class="border-l-4 border-purple-500 pl-4">
+                <h4 class="font-medium text-gray-900 mb-2">Multiple Jane Does v. Epstein Estate</h4>
+                <div class="text-sm text-gray-600 space-y-1">
+                  <div><strong>Status:</strong> Various settlements</div>
+                  <div><strong>Scope:</strong> Multiple civil actions post-Epstein&#39;s death</div>
+                  <div><strong>Documentation:</strong> Victim testimony, financial records</div>
+                </div>
+              </div>
+
+              <div class="border-l-4 border-green-500 pl-4">
+                <h4 class="font-medium text-gray-900 mb-2">Sarah Ransome v. Epstein, Maxwell</h4>
+                <div class="text-sm text-gray-600 space-y-1">
+                  <div><strong>Status:</strong> Settled</div>
+                  <div><strong>Documentation:</strong> Victim testimony, correspondence</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FBI Tips Warning -->
+        <div class="bg-red-50 p-8 border border-red-200 rounded-lg mb-12">
+          <h3 class="text-xl font-semibold text-red-900 mb-4">
+            <i class="fas fa-exclamation-triangle mr-2"></i>
+            FBI Tips: Critical Context Required
+          </h3>
+
+          <p class="text-red-800 mb-4">
+            The January 2026 release includes FBI-compiled lists of sexual assault allegations that require explicit interpretive caution. As noted by the DOJ:
+          </p>
+
+          <blockquote class="bg-white p-4 border-l-4 border-red-500 italic text-red-800 mb-4">
+            &#34;These materials represent everything sent to the FBI by the public and may include fake or falsely submitted images, documents or videos.&#34;
+          </blockquote>
+
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <h4 class="font-medium text-red-900 mb-2">Individuals Named in FBI Tips:</h4>
+              <ul class="text-sm text-red-700 space-y-1">
+                <li>• Donald Trump</li>
+                <li>• Jay-Z (Shawn Carter)</li>
+                <li>• Pusha T (Terrence Thornton)</li>
+                <li>• Harvey Weinstein</li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="font-medium text-red-900 mb-2">Important Notes:</h4>
+              <ul class="text-sm text-red-700 space-y-1">
+                <li>• These did NOT come from Epstein&#39;s personal records</li>
+                <li>• NOT corroborated by law enforcement</li>
+                <li>• Inclusion indicates receipt only, not verification</li>
+                <li>• NOT investigated by FBI</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Association vs. Allegation -->
+        <div class="bg-white p-8 border border-gray-200 rounded-lg">
+          <h3 class="text-xl font-semibold text-gray-900 mb-6">Association Without Allegation</h3>
+
+          <p class="text-gray-700 mb-6">
+            The vast majority of individuals named in Epstein documents fall into categories of association without criminal allegations. Understanding these distinctions is crucial for accurate interpretation.
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-8">
+            <div>
+              <h4 class="font-medium text-gray-900 mb-3">Types of Association</h4>
+              <div class="space-y-3">
+                <div class="border-l-4 border-gray-400 pl-4">
+                  <h5 class="font-medium text-gray-800">Flight Log Presence</h5>
+                  <p class="text-sm text-gray-600">Hundreds of passengers documented. Context matters: destination, frequency, and companions determine significance.</p>
+                </div>
+
+                <div class="border-l-4 border-gray-400 pl-4">
+                  <h5 class="font-medium text-gray-800">Photographic Documentation</h5>
+                  <p class="text-sm text-gray-600">Single-event vs. sustained relationship distinction crucial. Includes Jackson, Ross, Jagger, and others.</p>
+                </div>
+
+                <div class="border-l-4 border-gray-400 pl-4">
+                  <h5 class="font-medium text-gray-800">Contact Book Listings</h5>
+                  <p class="text-sm text-gray-600">Thousands of entries; does not indicate substantive relationship or wrongdoing.</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="font-medium text-gray-900 mb-3">Interpretive Guidance</h4>
+              <div class="space-y-3 text-sm text-gray-700">
+                <div class="flex items-start gap-2">
+                  <i class="fas fa-check-circle text-green-600 mt-1"></i>
+                  <span><strong>Document content and context</strong> determine significance, not mere presence</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i class="fas fa-check-circle text-green-600 mt-1"></i>
+                  <span><strong>Temporal proximity</strong> and frequency of contact matter</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i class="fas fa-check-circle text-green-600 mt-1"></i>
+                  <span><strong>Source reliability</strong> varies significantly across document types</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <i class="fas fa-check-circle text-green-600 mt-1"></i>
+                  <span><strong>Legal status distinctions</strong> between criminal, civil, and unverified claims</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Methodology &amp; Limitations -->
+      <section id="methodology" class="max-w-6xl mx-auto px-8 py-16 bg-white">
+        <div class="section-divider mb-12"></div>
+
+        <h2 class="serif text-4xl font-bold text-gray-900 mb-8">Methodology &amp; Limitations</h2>
+
+        <div class="grid lg:grid-cols-2 gap-12 mb-12">
+          <div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-6">Data Compilation Sources</h3>
+
+            <div class="space-y-6">
+              <div class="bg-blue-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-blue-900 mb-3">
+                  <i class="fas fa-database mr-2"></i>
+                  Primary Document Analysis
+                </h4>
+                <p class="text-sm text-blue-800 mb-3">
+                  Systematic review of EFTA-released documents from the January 30, 2026 DOJ disclosure.
+                </p>
+                <ul class="text-xs text-blue-700 space-y-1">
+                  <li>• 3.5 million pages analyzed</li>
+                  <li>• EFTA file cross-referencing</li>
+                  <li>• Document type categorization</li>
+                </ul>
+              </div>
+
+              <div class="bg-green-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-green-900 mb-3">
+                  <i class="fas fa-code mr-2"></i>
+                  Named Entity Extraction
+                </h4>
+                <p class="text-sm text-green-800 mb-3">
+                  Automated and manual extraction of named individuals from the comprehensive GitHub dataset.
+                </p>
+                <ul class="text-xs text-green-700 space-y-1">
+                  <li>• 7,824-entry dataset processed</li>
+                  <li>• Automated name recognition</li>
+                  <li>• Manual verification and categorization</li>
+                </ul>
+              </div>
+
+              <div class="bg-purple-50 p-6 rounded-lg">
+                <h4 class="font-semibold text-purple-900 mb-3">
+                  <i class="fas fa-chart-bar mr-2"></i>
+                  Quantitative Analysis
+                </h4>
+                <p class="text-sm text-purple-800 mb-3">
+                  Mention frequency analysis and relationship mapping across document categories.
+                </p>
+                <ul class="text-xs text-purple-700 space-y-1">
+                  <li>• Mention counting methodology</li>
+                  <li>• Network relationship analysis</li>
+                  <li>• Temporal and contextual weighting</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold text-gray-900 mb-6">Critical Limitations</h3>
+
+            <div class="space-y-6">
+              <div class="bg-red-50 p-6 rounded-lg border border-red-200">
+                <h4 class="font-semibold text-red-900 mb-3">
+                  <i class="fas fa-exclamation-triangle mr-2"></i>
+                  Redacted Information
+                </h4>
+                <p class="text-sm text-red-800 mb-2">
+                  Names in the 2000s draft indictment remain redacted, creating gaps in public understanding.
+                </p>
+                <p class="text-xs text-red-700">
+                  Impact: Unknown subjects of prosecution interest cannot be fully contextualized.
+                </p>
+              </div>
+
+              <div class="bg-amber-50 p-6 rounded-lg border border-amber-200">
+                <h4 class="font-semibold text-amber-900 mb-3">
+                  <i class="fas fa-question-circle mr-2"></i>
+                  Unverified FBI Tips
+                </h4>
+                <p class="text-sm text-amber-800 mb-2">
+                  Public submissions may contain false or malicious allegations requiring careful interpretation.
+                </p>
+                <p class="text-xs text-amber-700">
+                  Impact: Potential for misinterpretation without proper source discrimination.
+                </p>
+              </div>
+
+              <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                <h4 class="font-semibold text-blue-900 mb-3">
+                  <i class="fas fa-lock mr-2"></i>
+                  Ongoing Investigations
+                </h4>
+                <p class="text-sm text-blue-800 mb-2">
+                  Materials related to ongoing investigations were excluded from public release.
+                </p>
+                <p class="text-xs text-blue-700">
+                  Impact: Incomplete picture of current law enforcement activities.
+                </p>
+              </div>
+
+              <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                <h4 class="font-semibold text-gray-900 mb-3">
+                  <i class="fas fa-cog mr-2"></i>
+                  Processing Errors
+                </h4>
+                <p class="text-sm text-gray-800 mb-2">
+                  OCR and automated processing may introduce false positives in name extraction.
+                </p>
+                <p class="text-xs text-gray-700">
+                  Impact: Manual verification recommended for critical applications.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Verification Protocol -->
+        <div class="bg-white p-8 border border-gray-200 rounded-lg">
+          <h3 class="text-xl font-semibold text-gray-900 mb-6">Source Verification Protocol</h3>
+
+          <div class="grid md:grid-cols-3 gap-8">
+            <div>
+              <h4 class="font-medium text-gray-900 mb-3">Primary Sources</h4>
+              <div class="space-y-2 text-sm">
+                <div class="flex items-center gap-2">
+                  <i class="fas fa-check-circle text-green-600"></i>
+                  <a href="https://www.justice.gov/epstein" class="citation-link">DOJ Epstein Library</a>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i class="fas fa-check-circle text-green-600"></i>
+                  <a href="https://github.com/phelix001/epstein-network" class="citation-link">GitHub Dataset</a>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i class="fas fa-check-circle text-green-600"></i>
+                  <a href="https://raw.githubusercontent.com/phelix001/epstein-network/main/dataset8_all_names.csv" class="citation-link">Raw CSV Data</a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="font-medium text-gray-900 mb-3">Media Archives</h4>
+              <div class="space-y-2 text-sm">
+                <div class="flex items-center gap-2">
+                  <i class="fas fa-newspaper text-blue-600"></i>
+                  <a href="https://variety.com/2026/film/news/jay-z-harvey-weinstein-pusha-t-epstein-files-1236647297/" class="citation-link">Variety Coverage</a>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i class="fas fa-newspaper text-blue-600"></i>
+                  <a href="https://www.cnn.com/politics/live-news/epstein-files-release-doj-01-30-26" class="citation-link">CNN Live Updates</a>
+                </div>
+                <div class="flex items-center gap-2">
+                  <i class="fas fa-newspaper text-blue-600"></i>
+                  <a href="https://www.politico.com/news/2026/01/30/epstein-drop-live-00757275" class="citation-link">Politico Coverage</a>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h4 class="font-medium text-gray-900 mb-3">Verification Steps</h4>
+              <div class="space-y-2 text-sm text-gray-700">
+                <div class="flex items-start gap-2">
+                  <div class="w-5 h-5 bg-gray-200 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">1</div>
+                  <span>Cross-reference multiple sources</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <div class="w-5 h-5 bg-gray-200 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">2</div>
+                  <span>Check source reliability ratings</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <div class="w-5 h-5 bg-gray-200 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">3</div>
+                  <span>Review original document context</span>
+                </div>
+                <div class="flex items-start gap-2">
+                  <div class="w-5 h-5 bg-gray-200 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">4</div>
+                  <span>Verify temporal and spatial context</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-8">
+          <div class="grid md:grid-cols-3 gap-8 mb-8">
+            <div>
+              <h3 class="font-semibold mb-4">Data Sources</h3>
+              <div class="space-y-2 text-sm text-gray-300">
+                <div>U.S. Department of Justice Epstein Files</div>
+                <div>Federal Bureau of Investigation</div>
+                <div>House Oversight Committee</div>
+                <div>GitHub Epstein Network Dataset</div>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="font-semibold mb-4">Key Statistics</h3>
+              <div class="space-y-2 text-sm text-gray-300">
+                <div>3.5+ million pages analyzed</div>
+                <div>200+ named individuals</div>
+                <div>7,824 dataset entries processed</div>
+                <div>2 criminal prosecutions</div>
+              </div>
+            </div>
+
+            <div>
+              <h3 class="font-semibold mb-4">Methodology Note</h3>
+              <p class="text-sm text-gray-300">
+                This analysis is based on publicly released documents and datasets. All data sources are cited and linked for verification. Interpretation requires careful attention to source reliability and legal status distinctions.
+              </p>
+            </div>
+          </div>
+
+          <div class="border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
+            <p>This analysis is for informational purposes and represents compilation of publicly available data. All sources cited with links for verification.</p>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+        // Mobile TOC Toggle
+        const tocToggle = document.getElementById('toc-toggle');
+        const toc = document.getElementById('toc');
+        
+        tocToggle.addEventListener('click', () => {
+            toc.classList.toggle('open');
+        });
+        
+        // Close TOC when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!toc.contains(e.target) && !tocToggle.contains(e.target)) {
+                toc.classList.remove('open');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile TOC if open
+                    toc.classList.remove('open');
+                }
+            });
+        });
+        
+        // Active section highlighting in TOC
+        const sections = document.querySelectorAll('section[id]');
+        const tocLinks = document.querySelectorAll('nav a[href^="#"]');
+        
+        function updateActiveTocLink() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            tocLinks.forEach(link => {
+                link.classList.remove('text-gray-900', 'font-medium');
+                link.classList.add('text-gray-700');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.remove('text-gray-700');
+                    link.classList.add('text-gray-900', 'font-medium');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', updateActiveTocLink);
+        updateActiveTocLink(); // Initial call
+    </script>
+  
+
+</body></html>
